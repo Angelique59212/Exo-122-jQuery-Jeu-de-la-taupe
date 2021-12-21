@@ -17,7 +17,7 @@ function startGame() {
         account.html(timer);
         if (timer > 0) {
             let random = Math.random() * 6;
-            console.log($(`.hole${random}`));
+            $(`.hole${random}`);
         }
     })
 }
