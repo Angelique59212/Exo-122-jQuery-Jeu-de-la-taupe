@@ -1,7 +1,25 @@
-const holes = $(".hole");// utilier la méthode jquery appropriée pour selectionner les éléments ayant pour classe "hole";
-const scoreBoard = $(".score");//utiliser la méthode jquery appropriée pour selectionner l'élément ayant pour classe "score";
-const moles = $("mole");// utilier la méthode jquery appropriée pour selectionner les éléments ayant pour classe "mole";
+const holes = $(".hole");
+const scoreBoard = $(".score");
+const moles = $(".mole");
+const result = $('#result');
+const account = $("#account");
 
-$("#startGame").click(function startGame() {
+function startGame() {
+    $("#startGame").click(() => { //account 10 sec
+        let timer = 10;
+        setInterval(function () {
+            if (timer > 0) {
+                timer--;
+                console.log(timer)
+            }
+        }, 1000)
 
-})
+        account.html(timer);
+        if (timer > 0) {
+            let random = Math.random() * 6;
+            console.log($(`.hole${random}`));
+        }
+    })
+}
+
+startGame();
