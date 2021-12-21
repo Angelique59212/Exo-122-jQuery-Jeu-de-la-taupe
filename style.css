@@ -67,3 +67,9 @@ h1 {
 .hole.up .mole {
   top: 0;
 }
+
+#account {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+}

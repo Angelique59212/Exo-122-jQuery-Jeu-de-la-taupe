@@ -1,7 +1,6 @@
 const holes = $(".hole");
 const scoreBoard = $(".score");
 const moles = $(".mole");
-const result = $('#result');
 const account = $("#account");
 
 function startGame() {
@@ -10,16 +9,24 @@ function startGame() {
         setInterval(function () {
             if (timer > 0) {
                 timer--;
-                console.log(timer)
             }
         }, 1000)
 
-        account.html(timer);
-        if (timer > 0) {
-            let random = Math.random() * 6;
-            $(`.hole${random}`);
-        }
+        let durate = Math.floor(Math.random() *800 + 200);
+        setInterval(function () {
+            if (timer > 0) {
+                let random = Math.floor(Math.random() * 7);
+                holes.eq(random).addClass("up");
+            }
+            else {
+                account.html("Finished!")
+            }
+        },durate)
     })
 }
+moles.click(function () {
+    scoreBoard.text(parseInt(scoreBoard.text())+1);
+    $(this).parent().removeClass("up");
+})
 
 startGame();
